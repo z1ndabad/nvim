@@ -1,2 +1,3 @@
-require "user.options"
-vim.cmd "colorscheme catppuccin"
+require("user.options")
+require("user.keymaps")
+vim.cmd("colorscheme catppuccin")
