@@ -41,14 +41,3 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
--- Plugins
-vim.cmd([[
-    call plug#begin()
-    Plug 'ThePrimeagen/vim-be-good'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'windwp/nvim-autopairs'
-    Plug 'catppuccin/nvim', {'as': 'catppuccin'}
-    Plug 'Mofiqul/vscode.nvim'
-    call plug#end()
-]])
