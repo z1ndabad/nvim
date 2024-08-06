@@ -1,18 +1,4 @@
 return {
-    -- Colors
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd([[colorscheme catppuccin]])
-        end
-    },
-    {
-        'Mofiqul/vscode.nvim'
-    },
-    
     -- Programming
     {
         'sheerun/vim-polyglot'
