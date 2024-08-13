@@ -1,4 +1,7 @@
 # NVIM configuration files
+## Usage
+Clone into `~/.config/nvim` on Linux
+
 ## Where do I find xyz?
 | Thing  | Location |
 | ---    | ---      |
