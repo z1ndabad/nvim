@@ -7,6 +7,10 @@ local options = {
 	-- Clipboard
 	clipboard = "unnamedplus",
 
+	-- Completions
+	completeopt = { "menuone", "noselect" },
+	pumheight = 10,
+
 	-- Line numbers
 	number = true, -- absolute line numbers
 	relativenumber = true, -- relative line numbers -- show absolute only on current line

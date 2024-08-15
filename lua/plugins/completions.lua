@@ -6,19 +6,19 @@ local M = {
 		"hrsh7th/cmp-buffer", -- completion source for buffer wordlist (nvim default completions)
 		"hrsh7th/cmp-path", -- completion source for filesystem paths
 		"hrsh7th/cmp-cmdline", -- completion source for command line
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"L3MON4D3/LuaSnip", -- Snippet engine
 		"saadparwaiz1/cmp_luasnip", -- Luasnip completion source
 		"rafamadriz/friendly-snippets",
 	},
 }
-
 M.config = function()
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
 
 	cmp.setup({
 		-- autocomplete = false disables automatic completion popups
-		completion = { autocomplete = false },
+		-- completion = { autocomplete = true },
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
@@ -40,6 +40,7 @@ M.config = function()
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
+			{ name = "nvim_lsp_signature_help" },
 		}, {
 			{ name = "buffer" },
 			{ name = "path" },

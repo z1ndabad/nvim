@@ -13,6 +13,7 @@ return {
 				typescript = { "prettierd" },
 				typescriptreact = { "prettierd" },
 				json = { "prettierd" },
+				html = { "prettierd" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
