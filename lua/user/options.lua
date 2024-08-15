@@ -9,7 +9,7 @@ local options = {
 
 	-- Completions
 	completeopt = { "menuone", "noselect" },
-	pumheight = 10,
+	pumheight = 5,
 
 	-- Line numbers
 	number = true, -- absolute line numbers

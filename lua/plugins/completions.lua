@@ -14,6 +14,7 @@ local M = {
 }
 M.config = function()
 	local cmp = require("cmp")
+	local lspkind = require("lspkind")
 	local luasnip = require("luasnip")
 
 	cmp.setup({
@@ -26,10 +27,10 @@ M.config = function()
 		},
 		mapping = cmp.mapping.preset.insert({
 			-- Scroll items and docs
-			["<C-j>"] = cmp.mapping.select_next_item(),
-			["<C-k>"] = cmp.mapping.select_prev_item(),
-			["<C-b>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
+			["<Tab>"] = cmp.mapping.select_next_item(),
+			["<S-Tab>"] = cmp.mapping.select_prev_item(),
+			["<C-k>"] = cmp.mapping.scroll_docs(-4),
+			["<C-j>"] = cmp.mapping.scroll_docs(4),
 			["<C-Space>"] = cmp.mapping.complete(), -- pull up all completions with C-Space
 			["<C-e>"] = cmp.mapping.abort(),
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -38,13 +39,26 @@ M.config = function()
 		-- First show LSP completions and snippets, then buffer/path
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
-			{ name = "nvim_lua" },
+			-- { name = "nvim_lua" },
 			{ name = "luasnip" },
-			{ name = "nvim_lsp_signature_help" },
+			{ name = "nvim_lsp_signature_help" }, -- fn arg hints in insert mode, will not impact menus
 		}, {
 			{ name = "buffer" },
 			{ name = "path" },
 		}),
+
+		-- Formatting for completion popups
+		formatting = {
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+				menu = {
+					buffer = "[Buffer]",
+					nvim_lsp = "[LSP]",
+					luasnip = "[Snippet]",
+					nvim_lua = "[Lua]",
+				},
+			}),
+		},
 
 		experimental = {
 			ghost_text = false,

@@ -21,4 +21,5 @@ return {
 		},
 	},
 	"zapling/mason-conform.nvim", -- makes Mason install formatters specified above
+	"onsails/lspkind.nvim", -- icons for completion menus
 }

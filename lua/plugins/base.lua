@@ -1,11 +1,25 @@
 return {
-	-- Syntax highlighting
-	{
-		"sheerun/vim-polyglot",
-	},
+	-- More icons
+	"nvim-tree/nvim-web-devicons",
+	"echasnovski/mini.icons",
 
-	-- Misc
+	-- "wtf does this keybind do again?"
 	{
-		"ThePrimeagen/vim-be-good",
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	},
+	-- Syntax highlighting
+	"sheerun/vim-polyglot",
+	-- Misc
+	"ThePrimeagen/vim-be-good",
 }
