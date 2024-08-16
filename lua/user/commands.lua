@@ -1,10 +1,9 @@
 -- If this breaks, try buf_create_user_command
---[[
-vim.api.nvim_create_user_command("AutocompleteOn", function()
-	require("cmp").setup({ completion = { autocomplete = true } })
+vim.g.nvim_cmp_enabled = true
+vim.api.nvim_create_user_command("CompletionToggle", function()
+    vim.g.nvim_cmp_enabled = not vim.g.nvim_cmp_enabled
+    require("cmp").setup({ enabled = vim.g.nvim_cmp_enabled })
+    vim.notify(
+        "nvim-cmp " .. (vim.g.nvim_cmp_enabled and "enabled" or "disabled")
+    )
 end, {})
-
-vim.api.nvim_create_user_command("AutocompleteOff", function()
-	require("cmp").setup({ completion = { autocomplete = false } })
-end, {})
---]]

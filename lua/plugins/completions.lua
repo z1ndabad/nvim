@@ -19,7 +19,7 @@ M.config = function()
 
     cmp.setup({
         -- autocomplete = false disables automatic completion popups
-        -- completion = { autocomplete = true },
+        -- completion = { autocomplete = false },
         snippet = {
             expand = function(args)
                 luasnip.lsp_expand(args.body)
@@ -34,8 +34,14 @@ M.config = function()
             ["<C-Space>"] = cmp.mapping.complete(), -- pull up all completions with C-Space
             ["<C-e>"] = cmp.mapping.abort(),
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
+            ["<C-g>"] = function()
+                if cmp.visible_docs() then
+                    cmp.close_docs()
+                else
+                    cmp.open_docs()
+                end
+            end,
         }),
-
         -- First show LSP completions and snippets, then buffer/path
         sources = cmp.config.sources({
             { name = "nvim_lsp" },
@@ -60,6 +66,12 @@ M.config = function()
             }),
         },
 
+        view = {
+            docs = {
+                auto_open = false,
+            },
+        },
+
         experimental = {
             ghost_text = false,
         },
@@ -82,8 +94,6 @@ M.config = function()
             { name = "cmdline" },
         }),
     })
-
-    cmp.visible_docs()
 end
 
 return M
