@@ -29,9 +29,9 @@ M.config = function()
             -- Scroll items and docs
             ["<Tab>"] = cmp.mapping.select_next_item(),
             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-            ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-            ["<C-j>"] = cmp.mapping.scroll_docs(4),
-            ["<C-Space>"] = cmp.mapping.complete(), -- pull up all completions with C-Space
+            ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+            ["<C-f>"] = cmp.mapping.scroll_docs(4),
+            -- ["<C-Space>"] = cmp.mapping.complete(), -- disabled, tmux leader
             ["<C-e>"] = cmp.mapping.abort(),
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
             ["<C-g>"] = function()
@@ -45,7 +45,7 @@ M.config = function()
         -- First show LSP completions and snippets, then buffer/path
         sources = cmp.config.sources({
             { name = "nvim_lsp" },
-            -- { name = "nvim_lua" },
+            -- { name = "nvim_lua" }, -- disabled, conficts with lua lsp hints
             { name = "luasnip" },
             { name = "nvim_lsp_signature_help" }, -- fn arg hints in insert mode, will not impact menus
         }, {
@@ -70,6 +70,11 @@ M.config = function()
             docs = {
                 auto_open = false,
             },
+        },
+
+        window = {
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
         },
 
         experimental = {
