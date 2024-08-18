@@ -6,7 +6,7 @@ k("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- File explorer
-k("n", "<leader>e", ":Lex 30<cr>", opts)
+--k("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Normal mode
 -- Window resizing

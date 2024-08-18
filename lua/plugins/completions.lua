@@ -31,7 +31,7 @@ M.config = function()
             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
             ["<C-b>"] = cmp.mapping.scroll_docs(-4),
             ["<C-f>"] = cmp.mapping.scroll_docs(4),
-            -- ["<C-Space>"] = cmp.mapping.complete(), -- disabled, tmux leader
+            -- ["<C-q>"] = cmp.mapping.complete(), -- disabled, tmux leader
             ["<C-e>"] = cmp.mapping.abort(),
             ["<CR>"] = cmp.mapping.confirm({ select = true }),
             ["<C-g>"] = function()

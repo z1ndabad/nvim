@@ -1,12 +1,10 @@
 return {
-    -- More icons
-    "nvim-tree/nvim-web-devicons",
-    "echasnovski/mini.icons",
 
     -- "wtf does this keybind do again?"
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
+        dependencies = { "echasnovski/mini.icons" },
         opts = {
             preset = "helix",
             win = { height = { max = 10 } },
