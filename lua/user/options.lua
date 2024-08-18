@@ -41,6 +41,7 @@ local options = {
     showtabline = 1, -- show tab line when >1 tab open
     undofile = true, -- persistent undo
     wrap = false, -- wrap lines longer than the window (purely visual)
+    termguicolors = true,
 }
 
 for k, v in pairs(options) do

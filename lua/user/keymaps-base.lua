@@ -5,10 +5,11 @@ local k = vim.keymap.set
 k("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
--- File explorer
---k("n", "<leader>e", ":Lex 30<cr>", opts)
-
 -- Normal mode
+-- Buffer navigation
+k("n", "<S-l>", ":bnext<CR>", opts)
+k("n", "<S-h>", ":bprevious<CR>", opts)
+
 -- Window resizing
 k("n", "<C-Up>", ":resize +2<CR>", opts)
 k("n", "<C-Down>", ":resize -2<CR>", opts)
