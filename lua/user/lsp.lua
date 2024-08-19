@@ -1,7 +1,7 @@
 local lsp_zero = require("lsp-zero")
 
 -- Only set up language server keymaps when a language server is available
-local lsp_attach = function(client, bufnr)
+local lsp_attach = function(_, bufnr)
     local opts = { buffer = bufnr }
 
     vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
@@ -18,12 +18,24 @@ local lsp_attach = function(client, bufnr)
     vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
     vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
     vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+    vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
 end
 
 lsp_zero.extend_lspconfig({
     sign_text = true,
     lsp_attach = lsp_attach,
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
+})
+
+vim.diagnostic.config({
+    virtual_text = true,
+    severity_sort = true,
+    float = {
+        border = "rounded",
+        source = true,
+        header = "",
+        prefix = "",
+    },
 })
 
 require("mason").setup({})
