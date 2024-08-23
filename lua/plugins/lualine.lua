@@ -27,9 +27,10 @@ return {
                 {
                     "filetype",
                     colored = true,
-                    icon_only = true,
+                    icon_only = false,
                 },
             },
         },
+        extensions = { "oil", "mason", "lazy" },
     },
 }
