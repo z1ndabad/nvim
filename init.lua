@@ -5,3 +5,4 @@ require("luasnip.loaders.from_vscode").lazy_load() -- so the snippet engine can 
 require("user.lsp")
 require("user.keymaps-plugins")
 require("user.commands")
+Inspect = require("utils.inspect") -- pretty-printing for tables in cmdline, thanks https://github.com/kikito/inspect.lua
