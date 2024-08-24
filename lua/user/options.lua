@@ -40,8 +40,12 @@ local options = {
     scrolloff = 8, -- keep n lines above and below the cursor visible
     showtabline = 1, -- show tab line when >1 tab open
     undofile = true, -- persistent undo
-    wrap = false, -- wrap lines longer than the window (purely visual)
     termguicolors = true,
+
+    -- Soft-wrap lines at window width
+    wrap = true, -- wrap lines longer than the window (purely visual)
+    linebreak = true,
+    textwidth = 0,
 }
 
 for k, v in pairs(options) do
