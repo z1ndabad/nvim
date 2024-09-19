@@ -72,3 +72,14 @@ require("mason-lspconfig").setup({
 })
 
 require("mason-conform").setup()
+
+-- Credit to CoffeeCrash on SO for this one -- filetype for compose.yaml files is not yaml.docker-compose by default, which is needed by the compose LSP
+function Docker_Fix()
+    local filename = vim.fn.expand("%:t")
+
+    if filename == "compose.yaml" then
+        vim.bo.filetype = "yaml.docker-compose"
+    end
+end
+
+vim.cmd([[au BufRead * lua Docker_Fix()]])

@@ -15,17 +15,32 @@ return {
             show_hidden = true,
         },
         skip_confirm_for_simple_edits = true,
+        lsp_file_methods = {
+            timeout_ms = 1000,
+            autosave_changes = false,
+        },
+        git = {
+            add = function()
+                return false
+            end,
+            mv = function()
+                return true
+            end,
+            rm = function()
+                return true
+            end,
+        },
 
         -- redefine keymaps so C-h and C-l do not conflict with window-switching in vim-tmux-navigator
         keymaps = {
             ["g?"] = "actions.show_help",
             ["<CR>"] = "actions.select",
-            ["<C-s>"] = {
+            ["<C-v>"] = {
                 "actions.select",
                 opts = { vertical = true },
                 desc = "Open the entry in a vertical split",
             },
-            ["<C-d>"] = {
+            ["<C-x>"] = {
                 "actions.select",
                 opts = { horizontal = true },
                 desc = "Open the entry in a horizontal split",
@@ -54,6 +69,6 @@ return {
         use_default_keymaps = false,
     },
     keys = {
-        { "<leader>-", "<cmd>Oil<CR>", desc = "Open Oil in parent dir" },
+        { "-", "<cmd>Oil<CR>", desc = "Open Oil in parent dir" },
     },
 }

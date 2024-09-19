@@ -20,6 +20,7 @@ M.config = function()
     cmp.setup({
         -- autocomplete = false disables automatic completion popups
         -- completion = { autocomplete = false },
+        preselect = cmp.PreselectMode.None,
         snippet = {
             expand = function(args)
                 luasnip.lsp_expand(args.body)
@@ -31,9 +32,9 @@ M.config = function()
             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
             ["<C-b>"] = cmp.mapping.scroll_docs(-4),
             ["<C-f>"] = cmp.mapping.scroll_docs(4),
-            -- ["<C-q>"] = cmp.mapping.complete(), -- disabled, tmux leader
+            ["<C-a>"] = cmp.mapping.complete(), -- disabled, tmux leader
             ["<C-e>"] = cmp.mapping.abort(),
-            ["<CR>"] = cmp.mapping.confirm({ select = true }),
+            ["<CR>"] = cmp.mapping.confirm({ select = false }),
             ["<C-g>"] = function()
                 if cmp.visible_docs() then
                     cmp.close_docs()
@@ -68,7 +69,7 @@ M.config = function()
 
         view = {
             docs = {
-                auto_open = false,
+                auto_open = true,
             },
         },
 
