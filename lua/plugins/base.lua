@@ -20,6 +20,13 @@ return {
             },
         },
     },
+    -- sneak, my love
+    {
+        "ggandor/leap.nvim",
+        config = function(_, _)
+            require("leap").create_default_mappings()
+        end,
+    },
     -- tmux navigation
     {
         "christoomey/vim-tmux-navigator",
