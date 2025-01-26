@@ -16,6 +16,7 @@ return {
             lualine_c = {
                 {
                     "buffers",
+                    show_filename_only = false,
                     symbols = {
                         alternate_file = "",
                     },

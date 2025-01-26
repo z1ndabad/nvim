@@ -20,9 +20,10 @@ k("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 k("n", "<C-d>", "<C-d>zz", opts)
 k("n", "<C-u>", "<C-u>zz", opts)
 
--- Insert mode
--- Rebind esc in insert mode
-k("i", "jj", "<Esc>", opts)
+-- Leader mappings
+k("n", "<leader>w", ":w<CR>")
+k("n", "<leader>q", ":bd<CR>")
+k("n", "<leader>Q", ":q!<CR>")
 
 -- Visual mode
 -- Sticky indent (reselect the previous visual area after indenting)

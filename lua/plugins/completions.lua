@@ -7,32 +7,24 @@ local M = {
         "hrsh7th/cmp-path", -- completion source for filesystem paths
         "hrsh7th/cmp-cmdline", -- completion source for command line
         "hrsh7th/cmp-nvim-lsp-signature-help",
-        "L3MON4D3/LuaSnip", -- Snippet engine
-        "saadparwaiz1/cmp_luasnip", -- Luasnip completion source
         "rafamadriz/friendly-snippets",
     },
 }
 M.config = function()
     local cmp = require("cmp")
     local lspkind = require("lspkind")
-    local luasnip = require("luasnip")
 
     cmp.setup({
         -- autocomplete = false disables automatic completion popups
         -- completion = { autocomplete = false },
         preselect = cmp.PreselectMode.None,
-        snippet = {
-            expand = function(args)
-                luasnip.lsp_expand(args.body)
-            end,
-        },
         mapping = cmp.mapping.preset.insert({
             -- Scroll items and docs
             ["<Tab>"] = cmp.mapping.select_next_item(),
             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
             ["<C-b>"] = cmp.mapping.scroll_docs(-4),
             ["<C-f>"] = cmp.mapping.scroll_docs(4),
-            ["<C-a>"] = cmp.mapping.complete(), -- disabled, tmux leader
+            ["<C-a>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.abort(),
             ["<CR>"] = cmp.mapping.confirm({ select = false }),
             ["<C-g>"] = function()
@@ -43,11 +35,9 @@ M.config = function()
                 end
             end,
         }),
-        -- First show LSP completions and snippets, then buffer/path
+        -- First show LSP completions, then buffer/path
         sources = cmp.config.sources({
             { name = "nvim_lsp" },
-            -- { name = "nvim_lua" }, -- disabled, conficts with lua lsp hints
-            { name = "luasnip" },
             { name = "nvim_lsp_signature_help" }, -- fn arg hints in insert mode, will not impact menus
         }, {
             { name = "buffer" },
@@ -61,7 +51,6 @@ M.config = function()
                 menu = {
                     buffer = "[Buffer]",
                     nvim_lsp = "[LSP]",
-                    luasnip = "[Snippet]",
                     nvim_lua = "[Lua]",
                 },
             }),
@@ -69,7 +58,7 @@ M.config = function()
 
         view = {
             docs = {
-                auto_open = true,
+                auto_open = false,
             },
         },
 
