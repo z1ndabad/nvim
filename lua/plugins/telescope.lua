@@ -20,9 +20,9 @@ return {
     lazy = false,
     keys = {
         { "<leader>f", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-        { "<leader>F", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+        { "<leader>g", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
         {
-            "<leader>F",
+            "<leader>g",
             "<cmd>Telescope grep_string<cr>",
             mode = "v",
             desc = "Live grep selected",

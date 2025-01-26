@@ -22,7 +22,7 @@ k("n", "<C-u>", "<C-u>zz", opts)
 
 -- Leader mappings
 k("n", "<leader>w", ":w<CR>")
-k("n", "<leader>q", ":bd<CR>")
+-- k("n", "<leader>q", ":bd<CR>")
 k("n", "<leader>Q", ":q!<CR>")
 
 -- Visual mode
